@@ -42,7 +42,7 @@
     border:2px solid rgba(232,199,102,0.25);
   }
   .eyebrow{
-    font-family:'Arial', monospace;
+    font-family:'DM Sans', monospace;
     letter-spacing:.14em;
     text-transform:uppercase;
     font-size:12px;
@@ -72,7 +72,7 @@
     padding:6px 14px;
     border:1px solid rgba(232,199,102,0.5);
     border-radius:100px;
-    font-family:'Arial',monospace;
+    font-family:'DM Sans',monospace;
     font-size:11px;
     letter-spacing:.08em;
     color:var(--gold-bright);
@@ -81,7 +81,7 @@
   /* SECTION SHELLS */
   section{padding:34px 28px;}
   .section-label{
-    font-family:'Arial', monospace;
+    font-family:'DM Sans', monospace;
     font-size:11px;
     letter-spacing:.14em;
     text-transform:uppercase;
@@ -111,15 +111,22 @@
   .photo-circle{
     flex:0 0 auto;
     border-radius:50%;
+    overflow:hidden;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
     background:var(--cream);
-    border:1.5px dashed var(--gold);
+    border:1.5px solid var(--gold);
     color:#8a8365;
-    font-family:'DM Sans',monospace;
+    font-family:'DM Mono',monospace;
     letter-spacing:.03em;
+  }
+  .photo-circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
   .photo-circle.lg{
     width:200px;height:200px;
@@ -127,7 +134,7 @@
     line-height:1.3;
   }
   .photo-circle.sm{
-    width:80px;height:80px;
+    width:75px;height:75px;
     font-size:8px;
     line-height:1.25;
   }
@@ -168,7 +175,7 @@
     border-radius:50%;
     border:2px solid var(--gold);
     display:flex;align-items:center;justify-content:center;
-    font-family:'Anton',sans-serif;
+    font-family:'Arial',sans-serif;
     color:var(--royal);
     font-size:15px;
     background:linear-gradient(180deg,#fff, #FBF6E9);
@@ -188,7 +195,7 @@
     color:#4a5064;
   }
   .patch-meta{
-    font-family:'DM Mono',monospace;
+    font-family:'DM Sans',monospace;
     font-size:11px;
     color:var(--royal);
     letter-spacing:.03em;
@@ -244,7 +251,7 @@
     box-shadow:0 0 0 2px rgba(232,199,102,0.4);
   }
   .tl-date{
-    font-family:'DM Mono',monospace;
+    font-family:'DM Sans',monospace;
     font-size:11.5px;
     color:var(--gold-bright);
     letter-spacing:.04em;
@@ -263,7 +270,7 @@
     background:linear-gradient(180deg,#FBF6E9,#fff);
   }
   .alert-box h3{
-    font-family:'Anton',sans-serif;
+    font-family:'Arial',sans-serif;
     font-weight:400;
     text-transform:uppercase;
     font-size:18px;
@@ -284,7 +291,7 @@
   }
   .event-card:last-child{margin-bottom:0;}
   .event-card h3{
-    font-family:'Anton',sans-serif;
+    font-family:'Arial',sans-serif;
     font-weight:400;
     text-transform:uppercase;
     font-size:18px;
@@ -296,7 +303,7 @@
   .badge-challenge{
     display:inline-block;
     margin-top:4px;
-    font-family:'DM Mono',monospace;
+    font-family:'DM Sans',monospace;
     font-size:11px;
     letter-spacing:.04em;
     color:var(--royal-deep);
@@ -342,7 +349,7 @@
   .coord-card .who{font-size:14px;font-weight:700;color:var(--ink);margin:0 0 2px;}
   .coord-card .where{font-size:12.5px;color:#6a7086;margin:0;}
   .coord-card .area-tag{
-    font-family:'DM Mono',monospace;
+    font-family:'DM Sans',monospace;
     font-size:10.5px;
     letter-spacing:.03em;
     color:var(--royal);
@@ -372,8 +379,14 @@
     padding:30px 28px 40px;
     text-align:center;
   }
+  footer .footer-logo{
+    display:block;
+    width:120px;
+    height:auto;
+    margin:0 auto 16px;
+  }
   footer .sig{
-    font-family:'Anton',sans-serif;
+    font-family:'Arial',sans-serif;
     color:var(--gold-bright);
     font-size:15px;
     letter-spacing:.03em;
@@ -407,7 +420,7 @@
         <p class="section-label">A Note from the Regional Syntaktes</p>
         <h2 class="section-title" style="margin-bottom:0;">Basilei,</h2>
       </div>
-      <div class="photo-circle lg">SYNTAKTES<br><img src="<img src="https://iili.io/ndgh5oG.jpg" alt="Andrea Davis" border="0"><<br><p class="hero-tagline"></div>
+      <div class="photo-circle lg"><img src="https://iili.io/ndgh5oG.jpg" alt="Andrea Davis"></div>
     </div>
     <p>First, thank you.</p>
     <p>As I near my planned return to office on Monday, October 5, I want to take a moment to express my sincere gratitude for the care, concern, check-ins, gifts, prayers, and encouragement many of you and your chapters extended to me during the birth of my son and my maternity leave.</p>
@@ -551,90 +564,90 @@
     <div class="coord-grid">
 
       <div class="coord-card">
-        <div class="photo-circle sm"><img src="https://iili.io/ndgKgrF.jpg" alt="Kimberly Adolinama" border="0"></div>
+        <div class="photo-circle sm"><img src="https://iili.io/ndgKgrF.jpg" alt="Kimberly Adolinama"></div>
         <div class="info">
           <div>
-          <p class="who">Kimberly Adolinama</p>
-          <p class="where">Nu Delta Sigma · San Bernardino County, CA</p>
-        </div>
-        <span class="area-tag">SOCAL AC<br>wracsocal@gmail.com</span>
+            <p class="who">Kimberly Adolinama</p>
+            <p class="where">Nu Delta Sigma · San Bernardino County, CA</p>
+          </div>
+          <span class="area-tag">SOCAL AC<br>wracsocal@gmail.com</span>
         </div>
       </div>
 
       <div class="coord-card">
-        <div class="photo-circle sm"><img src="https://iili.io/ndgbhKv.jpg" alt="Tessy Iwuh" border="0"></div>
+        <div class="photo-circle sm"><img src="https://iili.io/ndgbhKv.jpg" alt="Tessy Beth Iwuh"></div>
         <div class="info">
           <div>
-          <p class="who">Tessy Beth Iwuh</p>
-          <p class="where">Lambda Gamma Sigma · Pomona, CA</p>
-        </div>
-        <span class="area-tag">SOCAL ASST AC<br>wracassistant@gmail.com</span>
+            <p class="who">Tessy Beth Iwuh</p>
+            <p class="where">Lambda Gamma Sigma · Pomona, CA</p>
+          </div>
+          <span class="area-tag">SOCAL ASST AC<br>wracassistant@gmail.com</span>
         </div>
       </div>
 
       <div class="coord-card">
-        <div class="photo-circle sm"><img src="https://iili.io/ndgn8U7.jpg" alt="Dr. Erica Morgera" border="0"></div>
+        <div class="photo-circle sm"><img src="https://iili.io/ndgn8U7.jpg" alt="Dr. Erica Morgera"></div>
         <div class="info">
           <div>
-          <p class="who">Dr. Erica Morgera</p>
-          <p class="where">Eta Alpha Sigma · Sacramento, CA</p>
-        </div>
-        <span class="area-tag">NORTHERN CA<br>wracnorcal@gmail.com</span>
+            <p class="who">Dr. Erica Morgera</p>
+            <p class="where">Eta Alpha Sigma · Sacramento, CA</p>
+          </div>
+          <span class="area-tag">NORTHERN CA<br>wracnorcal@gmail.com</span>
         </div>
       </div>
 
       <div class="coord-card">
-        <div class="photo-circle sm"><img src="https://iili.io/ndgKU11.jpg" alt="Dr. Lynette Williamson" border="0"></div>
+        <div class="photo-circle sm"><img src="https://iili.io/ndgKU11.jpg" alt="Dr. Lynette Williamson"></div>
         <div class="info">
           <div>
-          <p class="who">Dr. Lynette Williamson</p>
-          <p class="where">Lambda Mu Sigma · Honolulu, HI</p>
-        </div>
-        <span class="area-tag">HAWAII/INTL AC<br>wracinternational@gmail.com</span>
+            <p class="who">Dr. Lynette Williamson</p>
+            <p class="where">Lambda Mu Sigma · Honolulu, HI</p>
+          </div>
+          <span class="area-tag">HAWAII/INTL AC<br>wracinternational@gmail.com</span>
         </div>
       </div>
 
       <div class="coord-card">
-        <div class="photo-circle sm"><img src="https://iili.io/ndgKkXV.jpg" alt="Arizona Proctor" border="0"></div>
+        <div class="photo-circle sm"><img src="https://iili.io/ndgKkXV.jpg" alt="Arizona Proctor"></div>
         <div class="info">
           <div>
-          <p class="who">Arizona Proctor</p>
-          <p class="where">Delta Psi Sigma · Seattle, WA</p>
-        </div>
-        <span class="area-tag">PACIFIC NW AC<br>wracpnw@gmail.com</span>
+            <p class="who">Arizona Proctor</p>
+            <p class="where">Delta Psi Sigma · Seattle, WA</p>
+          </div>
+          <span class="area-tag">PACIFIC NW AC<br>wracpnw@gmail.com</span>
         </div>
       </div>
 
       <div class="coord-card">
-        <div class="photo-circle sm"><img src="https://iili.io/ndgKvLB.png" alt="Jacqueline Williams" border="0"></div>
+        <div class="photo-circle sm"><img src="https://iili.io/ndgKvLB.png" alt="Jacqueline Williams"></div>
         <div class="info">
           <div>
-          <p class="who">Jacqueline Williams</p>
-          <p class="where">Beta Mu Sigma · Phoenix, AZ</p>
-        </div>
-        <span class="area-tag">ARIZONA AC<br>wracarizona@gmail.com</span>
+            <p class="who">Jacqueline Williams</p>
+            <p class="where">Beta Mu Sigma · Phoenix, AZ</p>
+          </div>
+          <span class="area-tag">ARIZONA AC<br>wracarizona@gmail.com</span>
         </div>
       </div>
 
       <div class="coord-card">
-        <div class="photo-circle sm"><img src="https://iili.io/ndgKSqP.png" alt="Dione Gantt" border="0"></div>
+        <div class="photo-circle sm"><img src="https://iili.io/ndgKSqP.png" alt="Dione Gantt"></div>
         <div class="info">
           <div>
-          <p class="who">Dione Gantt</p>
-          <p class="where">Eta Chi Sigma · Las Vegas, NV</p>
-        </div>
-        <span class="area-tag">NEVADA AC<br>wracnevada@gmail.com</span>
+            <p class="who">Dione Gantt</p>
+            <p class="where">Eta Chi Sigma · Las Vegas, NV</p>
+          </div>
+          <span class="area-tag">NEVADA AC<br>wracnevada@gmail.com</span>
         </div>
       </div>
 
       <div class="coord-card">
-        <div class="photo-circle sm"><img src="https://iili.io/ndgKezQ.jpg" alt="Cierra Conerly" border="0"></div>
+        <div class="photo-circle sm"><img src="https://iili.io/ndgKezQ.jpg" alt="Cierra Conerly"></div>
         <div class="info">
           <div>
-          <p class="who">Cierra "CC" Conerly</p>
-          <p class="where">Lambda Alpha Sigma · Tucson, AZ</p>
-        </div>
-        <span class="area-tag">CO &amp; NM AC<br>wraccolorado@gmail.com</span>
+            <p class="who">Cierra "CC" Conerly</p>
+            <p class="where">Lambda Alpha Sigma · Tucson, AZ</p>
+          </div>
+          <span class="area-tag">CO &amp; NM AC<br>wraccolorado@gmail.com</span>
         </div>
       </div>
 
@@ -708,13 +721,17 @@
   </section>
 
   <footer>
-    <p style="margin:0 0 4px 0;font-family:Arial Black, Arial, sans-serif;font-weight:900;color:#c99b2a;font-size:15px;letter-spacing:.5px;"><br>
-<img src="https://iili.io/CUoMaLb.png" alt="We-Sigma-Together-Gold" style="display:block;width:159px;height:auto;aspect-ratio:2050/1364;object-fit:cover;margin:0 auto;"></p>
+    <img class="footer-logo" src="https://iili.io/CUoMaLb.png" alt="We Sigma Together">
     <p class="sig">ANDREA DAVIS</p>
     <p>20th Western Regional Syntaktes</p>
     <p>Sigma Gamma Rho Sorority, Inc. — Western Region</p>
     <p style="margin-top:14px;">One Region. One Sisterhood. One Mighty Future.</p>
     <p style="margin-top:10px;">This Brief does not replace official ICHQ correspondence, regional policies, or governing documents.</p>
+ <p style="margin:16px 0 0 0;color:rgba(255,255,255,0.4);font-family:Arial,sans-serif;font-size:11px;line-height:1.6;">
+<a href="https://www.westernsgrho.org" style="color:#c99b2a;">Western Region Website</a> | <a href="https://web.groupme.com/chats/group/115922600" style="color:#c99b2a;">Western Region Basileus GroupMe
+You're receiving this as a Sigma Gamma Rho Sorority - Western Region Undergraduate member or advisor.<br>
+If this no longer applies to you, please reply to this email to unsubscribe.
+</p>
   </footer>
 
 </div>
