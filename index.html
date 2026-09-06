@@ -108,18 +108,32 @@
     margin-bottom:2px;
   }
   .note-header .heading{flex:1;}
+  .label-graphic{
+  display:block;
+  max-width:400px;      /* was 260px — raise this to size it up */
+  width:100%;
+  height:auto;
+  margin:0 auto 12px;   /* auto left/right = centers it */
+  }
   .photo-circle{
     flex:0 0 auto;
     border-radius:50%;
+    overflow:hidden;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
     background:var(--cream);
-    border:1.5px dashed var(--gold);
+    border:1.5px solid var(--gold);
     color:#8a8365;
     font-family:'DM Mono',monospace;
     letter-spacing:.03em;
+  }
+  .photo-circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
   .photo-circle.lg{
     width:76px;height:76px;
@@ -372,6 +386,12 @@
     padding:30px 28px 40px;
     text-align:center;
   }
+  footer .footer-logo{
+    display:block;
+    width:120px;
+    height:auto;
+    margin:0 auto 16px;
+  }
   footer .sig{
     font-family:'Anton',sans-serif;
     color:var(--gold-bright);
@@ -403,9 +423,11 @@
 
   <section class="note-section">
     <div class="note-header">
-      <div <img src="https://iili.io/nd6pge4.png" alt="A Note From The Regional Syntaktes" border="0"></div>
+      <div class="heading">
+        <img class="label-graphic" src="https://iili.io/nd6pge4.png" alt="A Note From The Regional Syntaktes">
         <h2 class="section-title" style="margin-bottom:0;">Basilei,</h2>
       </div>
+    </div>
     <p>First, thank you.</p>
     <p>As I near my planned return to office on Monday, October 5, I want to take a moment to express my sincere gratitude for the care, concern, check-ins, gifts, prayers, and encouragement many of you and your chapters extended to me during the birth of my son and my maternity leave.</p>
     <p>I also appreciate your doing your best to honor my time away and give me the space to be present with my family. I know there were moments when things simply called for my attention, and I did my best to resolve issues within a newborn's schedule and our bonding time. I appreciate your grace and understanding when that happened.</p>
@@ -541,7 +563,7 @@
     <div class="note">Outstanding reports, fines, or compliance issues may affect a chapter's ability to conduct intake or seat delegates at the upcoming conference. If your chapter has an open item, now is the time to resolve it.</div>
   </section>
 
-   <section class="region-section">
+  <section class="region-section">
     <p class="section-label">Know Your Region</p>
     <h2 class="section-title">Meet Your Area Coordinators</h2>
     <p style="font-size:13.8px;color:#4a5064;line-height:1.6;margin:0 0 16px;">The Western Region has welcomed several new Area Coordinators for the 2026–2028 biennium. Your Area Coordinator is your first line of regional support for chapter-level questions, guidance, and concerns.</p>
@@ -554,7 +576,7 @@
             <p class="who">Kimberly Adolinama</p>
             <p class="where">Nu Delta Sigma · San Bernardino County, CA</p>
           </div>
-          <span class="area-tag">SOCAL AC<br><a href="mailto:wracsocal@gmail.com” style="color:#c99b2a;">wracsocal@gmail.com</a></span>
+          <span class="area-tag">SOCAL AC<br><a href="mailto:wracsocal@gmail.com" style="color:#c99b2a;">wracsocal@gmail.com</a></span>
         </div>
       </div>
 
@@ -565,7 +587,7 @@
             <p class="who">Tessy Beth Iwuh</p>
             <p class="where">Lambda Gamma Sigma · Pomona, CA</p>
           </div>
-          <span class="area-tag">SOCAL ASST AC<br><a href="mailto:wracassistant@gmail.com” style="color:#c99b2a;">wracassistant@gmail.com</a></span>
+          <span class="area-tag">SOCAL ASST AC<br><a href="mailto:wracassistant@gmail.com" style="color:#c99b2a;">wracassistant@gmail.com</a></span>
         </div>
       </div>
 
@@ -576,7 +598,7 @@
             <p class="who">Dr. Erica Morgera</p>
             <p class="where">Eta Alpha Sigma · Sacramento, CA</p>
           </div>
-          <span class="area-tag">NORTHERN CA<br><a href=“mailto:wracnorcal@gmail.com" style="color:#c99b2a;">wracnorcal@gmail.com</a></span>
+          <span class="area-tag">NORTHERN CA<br><a href="mailto:wracnorcal@gmail.com" style="color:#c99b2a;">wracnorcal@gmail.com</a></span>
         </div>
       </div>
 
@@ -587,7 +609,7 @@
             <p class="who">Dr. Lynette Williamson</p>
             <p class="where">Lambda Mu Sigma · Honolulu, HI</p>
           </div>
-          <span class="area-tag">HAWAII/INTL AC<br><a href=“mailto:wracinternational@gmail.com" style="color:#c99b2a;">wracinternational@gmail.com</a></span>
+          <span class="area-tag">HAWAII/INTL AC<br><a href="mailto:wracinternational@gmail.com" style="color:#c99b2a;">wracinternational@gmail.com</a></span>
         </div>
       </div>
 
@@ -598,7 +620,7 @@
             <p class="who">Arizona Proctor</p>
             <p class="where">Delta Psi Sigma · Seattle, WA</p>
           </div>
-          <span class="area-tag">PACIFIC NW AC<br><a href="mailto”:wracpnw@gmail.com style="color:#c99b2a;">wracpnw@gmail.com</a></span>
+          <span class="area-tag">PACIFIC NW AC<br><a href="mailto:wracpnw@gmail.com" style="color:#c99b2a;">wracpnw@gmail.com</a></span>
         </div>
       </div>
 
@@ -609,7 +631,7 @@
             <p class="who">Jacqueline Williams</p>
             <p class="where">Beta Mu Sigma · Phoenix, AZ</p>
           </div>
-          <span class="area-tag">ARIZONA AC<br><a href=“mailto:wracarizona@gmail.com" style="color:#c99b2a;">wracarizona@gmail.com</a></span>
+          <span class="area-tag">ARIZONA AC<br><a href="mailto:wracarizona@gmail.com" style="color:#c99b2a;">wracarizona@gmail.com</a></span>
         </div>
       </div>
 
@@ -620,7 +642,7 @@
             <p class="who">Dione Gantt</p>
             <p class="where">Eta Chi Sigma · Las Vegas, NV</p>
           </div>
-          <span class="area-tag">NEVADA AC<br><a href=“mailto:wracnevada@gmail.com" style="color:#c99b2a;">wracnevada@gmail.com</a></span>
+          <span class="area-tag">NEVADA AC<br><a href="mailto:wracnevada@gmail.com" style="color:#c99b2a;">wracnevada@gmail.com</a></span>
         </div>
       </div>
 
@@ -631,10 +653,10 @@
             <p class="who">Cierra "CC" Conerly</p>
             <p class="where">Lambda Alpha Sigma · Tucson, AZ</p>
           </div>
-          <span class="area-tag">CO &amp; NM AC<br><a href=“mailto:wraccolorado@gmail.com" style="color:#c99b2a;">wraccolorado@gmail.come</a></span>
+          <span class="area-tag">CO &amp; NM AC<br><a href="mailto:wraccolorado@gmail.com" style="color:#c99b2a;">wraccolorado@gmail.com</a></span>
         </div>
       </div>
-    
+
     </div>
     <div class="note" style="margin-top:16px;">Want to know the full Western Region leadership team? Meet the Board of Directors, Coordinators, and Leadership Team at westernsgrho.org/leadership.</div>
   </section>
@@ -711,9 +733,9 @@
     <p>Sigma Gamma Rho Sorority, Inc. — Western Region</p>
     <p style="margin-top:14px;">One Region. One Sisterhood. One Mighty Future.</p>
     <p style="margin-top:10px;">This Brief does not replace official ICHQ correspondence, regional policies, or governing documents.</p>
- <p style="margin:16px 0 0 0;color:rgba(255,255,255,0.4);font-family:Arial,sans-serif;font-size:11px;line-height:1.6;">
-<a href="https://www.westernsgrho.org" style="color:#c99b2a;">Western Region Website</a><p> | </p><a href="https://web.groupme.com/chats/group/115922600" style="color:#c99b2a;">Western Region Basileus GroupMe</a><br>
-</p>
+    <p style="margin:16px 0 0 0;color:rgba(255,255,255,0.4);font-family:Arial,sans-serif;font-size:11px;line-height:1.6;">
+      <a href="https://www.westernsgrho.org" style="color:#c99b2a;">Western Region Website</a> &nbsp;|&nbsp; <a href="https://web.groupme.com/chats/group/115922600" style="color:#c99b2a;">Western Region Basileus GroupMe</a>
+    </p>
   </footer>
 
 </div>
