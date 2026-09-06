@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Basileus Brief — Issue 01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --royal:#003DA5;
+    --royal-deep:#00204F;
+    --gold:#C9A84C;
+    --gold-bright:#E8C766;
+    --cream:#FAF7EF;
+    --ink:#12172A;
+    --line: rgba(0,61,165,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'DM Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px;margin:0 auto;}
+
+  /* MASTHEAD */
+  .masthead{
+    background:linear-gradient(160deg, var(--royal) 0%, var(--royal-deep) 100%);
+    padding:44px 28px 36px;
+    position:relative;
+    overflow:hidden;
+  }
+  .masthead::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:220px; height:220px;
+    border-radius:50%;
+    border:2px solid rgba(232,199,102,0.25);
+  }
+  .eyebrow{
+    font-family:'DM Mono', monospace;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--gold-bright);
+    margin:0 0 10px;
+  }
+  .masthead h1{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    font-size:42px;
+    line-height:0.98;
+    letter-spacing:.01em;
+    color:#fff;
+    margin:0 0 14px;
+    text-transform:uppercase;
+  }
+  .masthead h1 span{color:var(--gold-bright);}
+  .masthead p.tag{
+    color:rgba(255,255,255,0.78);
+    font-size:15px;
+    margin:0;
+    max-width:420px;
+  }
+  .issue-tab{
+    display:inline-block;
+    margin-top:22px;
+    padding:6px 14px;
+    border:1px solid rgba(232,199,102,0.5);
+    border-radius:100px;
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    color:var(--gold-bright);
+  }
+
+  /* SECTION SHELLS */
+  section{padding:34px 28px;}
+  .section-label{
+    font-family:'DM Mono', monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--royal);
+    margin:0 0 6px;
+  }
+  h2.section-title{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:25px;
+    letter-spacing:.01em;
+    margin:0 0 18px;
+    color:var(--ink);
+  }
+
+  /* NOTE FROM THE SYNTAKTES */
+  .note-section{background:#fff; border-bottom:1px solid var(--line);}
+  .note-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:18px;
+    margin-bottom:2px;
+  }
+  .note-header .heading{flex:1;}
+  .photo-circle{
+    flex:0 0 auto;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:var(--cream);
+    border:1.5px dashed var(--gold);
+    color:#8a8365;
+    font-family:'DM Mono',monospace;
+    letter-spacing:.03em;
+  }
+  .photo-circle.lg{
+    width:76px;height:76px;
+    font-size:9.5px;
+    line-height:1.3;
+  }
+  .photo-circle.sm{
+    width:52px;height:52px;
+    font-size:8px;
+    line-height:1.25;
+  }
+  .note-section p{font-size:15px;line-height:1.7;margin:0 0 14px;color:#2a3040;}
+  .sig-block{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+  }
+  .sig-block .sig-name{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    font-size:17px;
+    color:var(--royal-deep);
+    margin:0 0 2px;
+  }
+  .sig-block .sig-title{
+    font-size:12.5px;
+    color:#6a7086;
+    margin:0;
+  }
+
+  /* PATCH LIST (actions / know-now items) */
+  .patch-list{display:flex;flex-direction:column;gap:14px;}
+  .patch{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px;
+    position:relative;
+  }
+  .patch-icon{
+    flex:0 0 auto;
+    width:40px;height:40px;
+    border-radius:50%;
+    border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Anton',sans-serif;
+    color:var(--royal);
+    font-size:15px;
+    background:linear-gradient(180deg,#fff, #FBF6E9);
+    text-align:center;
+    line-height:1.05;
+  }
+  .patch-body h3{
+    margin:0 0 6px;
+    font-size:16.5px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .patch-body p{
+    margin:0 0 10px;
+    font-size:13.8px;
+    line-height:1.55;
+    color:#4a5064;
+  }
+  .patch-meta{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    color:var(--royal);
+    letter-spacing:.03em;
+    margin-bottom:10px;
+    display:block;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--royal);
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    padding:9px 16px;
+    border-radius:8px;
+  }
+  .btn.ghost{
+    background:transparent;
+    border:1.5px solid var(--royal);
+    color:var(--royal);
+  }
+  .note{
+    font-size:12px;
+    color:#6a7086;
+    line-height:1.5;
+    background:#FBF6E9;
+    border-left:3px solid var(--gold);
+    padding:10px 14px;
+    border-radius:6px;
+    margin-top:12px;
+  }
+  section.actions{background:var(--cream);}
+
+  /* TIMELINE */
+  .dates{background:var(--royal-deep);}
+  .dates .section-label{color:var(--gold-bright);}
+  .dates h2.section-title{color:#fff;}
+  .dates .lead-line{color:rgba(255,255,255,0.7);font-size:13.5px;line-height:1.6;margin:0 0 20px;}
+  .timeline{position:relative;padding-left:26px;}
+  .timeline::before{
+    content:"";
+    position:absolute;left:6px;top:6px;bottom:6px;
+    width:2px;
+    background:rgba(232,199,102,0.35);
+  }
+  .tl-item{position:relative;padding-bottom:24px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{
+    position:absolute;left:-26px;top:2px;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--gold-bright);
+    border:3px solid var(--royal-deep);
+    box-shadow:0 0 0 2px rgba(232,199,102,0.4);
+  }
+  .tl-date{
+    font-family:'DM Mono',monospace;
+    font-size:11.5px;
+    color:var(--gold-bright);
+    letter-spacing:.04em;
+    display:block;
+    margin-bottom:3px;
+  }
+  .tl-title{color:#fff;font-weight:700;font-size:15px;margin:0 0 3px;}
+  .tl-loc{color:rgba(255,255,255,0.65);font-size:12.5px;margin:0;}
+
+  /* ALERT / BOULE UPDATE */
+  .alert-section{background:#fff;border-bottom:1px solid var(--line);}
+  .alert-box{
+    border:1.5px solid var(--gold);
+    border-radius:14px;
+    padding:20px;
+    background:linear-gradient(180deg,#FBF6E9,#fff);
+  }
+  .alert-box h3{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:18px;
+    margin:0 0 10px;
+    color:var(--royal-deep);
+  }
+  .alert-box p{font-size:13.8px;color:#4a5064;line-height:1.6;margin:0 0 10px;}
+  .alert-box p:last-child{margin-bottom:0;}
+
+  /* CALLOUT (events) */
+  .callout{background:var(--cream);}
+  .event-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px;
+    margin-bottom:14px;
+  }
+  .event-card:last-child{margin-bottom:0;}
+  .event-card h3{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:18px;
+    margin:0 0 8px;
+    color:var(--royal);
+  }
+  .event-card p{font-size:13.8px;color:#4a5064;line-height:1.6;margin:0 0 10px;}
+  .event-card .patch-meta{margin-bottom:6px;}
+  .badge-challenge{
+    display:inline-block;
+    margin-top:4px;
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:.04em;
+    color:var(--royal-deep);
+    background:#FBF6E9;
+    border:1px solid var(--line);
+    border-radius:100px;
+    padding:6px 12px;
+  }
+
+  /* COMPLIANCE */
+  .compliance-section{background:#fff;border-bottom:1px solid var(--line);}
+  .compliance-list{list-style:none;margin:0 0 16px;padding:0;}
+  .compliance-list li{
+    font-size:13.8px;
+    color:#4a5064;
+    line-height:1.6;
+    padding:10px 0 10px 22px;
+    position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  .compliance-list li:last-child{border-bottom:none;}
+  .compliance-list li::before{
+    content:"";
+    position:absolute;left:0;top:16px;
+    width:8px;height:8px;
+    background:var(--gold);
+    border-radius:2px;
+  }
+
+  /* COORDINATOR GRID */
+  .region-section{background:var(--cream);}
+  .coord-grid{display:flex;flex-direction:column;gap:10px;}
+  .coord-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .coord-card .info{flex:1;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  .coord-card .who{font-size:14px;font-weight:700;color:var(--ink);margin:0 0 2px;}
+  .coord-card .where{font-size:12.5px;color:#6a7086;margin:0;}
+  .coord-card .area-tag{
+    font-family:'DM Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.03em;
+    color:var(--royal);
+    text-align:right;
+    white-space:nowrap;
+  }
+
+  /* PASS IT ON */
+  .passiton{background:#fff;border-bottom:1px solid var(--line);}
+
+  /* NEED HELP TABLE */
+  .help-section{background:var(--royal-deep);}
+  .help-section .section-label{color:var(--gold-bright);}
+  .help-section h2.section-title{color:#fff;}
+  .help-list{display:flex;flex-direction:column;gap:14px;}
+  .help-item{
+    border-bottom:1px solid rgba(255,255,255,0.12);
+    padding-bottom:14px;
+  }
+  .help-item:last-child{border-bottom:none;padding-bottom:0;}
+  .help-item .q{color:var(--gold-bright);font-weight:700;font-size:13.5px;margin:0 0 4px;}
+  .help-item .a{color:rgba(255,255,255,0.75);font-size:13px;line-height:1.55;margin:0;}
+
+  /* FOOTER */
+  footer{
+    background:var(--ink);
+    padding:30px 28px 40px;
+    text-align:center;
+  }
+  footer .sig{
+    font-family:'Anton',sans-serif;
+    color:var(--gold-bright);
+    font-size:15px;
+    letter-spacing:.03em;
+    margin-bottom:4px;
+  }
+  footer p{color:rgba(255,255,255,0.55);font-size:12px;line-height:1.6;margin:2px 0;}
+  footer a{color:var(--gold-bright);text-decoration:none;}
+
+  @media (max-width:480px){
+    .masthead h1{font-size:32px;}
+    section{padding:28px 20px;}
+    .note-header{flex-direction:column-reverse;align-items:flex-start;}
+    .coord-card .info{flex-direction:column;align-items:flex-start;}
+    .coord-card .area-tag{text-align:left;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <p class="eyebrow">Sigma Gamma Rho Sorority, Inc. — Western Region · Office of the Regional Syntaktes</p>
+    <h1>The Basileus<br><span>Brief</span></h1>
+    <p class="tag">What you need to know. What your chapter needs to do. Where to go for help.</p>
+    <span class="issue-tab">ISSUE 01 · FALL 2026</span>
+  </div>
+
+  <section class="note-section">
+    <div class="note-header">
+      <div class="heading">
+        <p class="section-label">A Note from the Regional Syntaktes</p>
+        <h2 class="section-title" style="margin-bottom:0;">Basilei,</h2>
+      </div>
+      <div class="photo-circle lg">SYNTAKTES<br>PHOTO</div>
+    </div>
+    <p>First, thank you.</p>
+    <p>As I near my planned return to office on Monday, October 5, I want to take a moment to express my sincere gratitude for the care, concern, check-ins, gifts, prayers, and encouragement many of you and your chapters extended to me during the birth of my son and my maternity leave.</p>
+    <p>I also appreciate your doing your best to honor my time away and give me the space to be present with my family. I know there were moments when things simply called for my attention, and I did my best to resolve issues within a newborn's schedule and our bonding time. I appreciate your grace and understanding when that happened.</p>
+    <p>I am grateful to be returning knowing that our chapters and our Region continued moving forward, and I am excited about what is ahead for Western. There is a great deal happening as we begin this new biennium, and I look forward to continuing this work with you.</p>
+    <p>Thank you for leading your chapters, caring for your members and affiliates, and helping us EVOLVE the Mighty Western Region Forward, together.</p>
+    <div class="sig-block">
+      <p class="sig-name">Andrea Davis</p>
+      <p class="sig-title">20th Western Regional Syntaktes</p>
+    </div>
+  </section>
+
+  <section class="actions">
+    <p class="section-label">Know Now</p>
+    <h2 class="section-title">Poodle Portal &amp; FSID</h2>
+    <div class="patch-list">
+
+      <div class="patch">
+        <div class="patch-icon">FSID</div>
+        <div class="patch-body">
+          <h3>Claim Your Account</h3>
+          <span class="patch-meta">EVERY MEMBER · DO NOT WAIT</span>
+          <p>Members should check the email address the Sorority currently has on file for instructions to establish their FSID and complete account setup. Encourage members to claim now, rather than waiting until they need to complete a transaction.</p>
+          <div class="note">The Regional Grammateus is reaching out to identify members whose accounts are still showing as unclaimed.</div>
+        </div>
+      </div>
+
+      <div class="patch">
+        <div class="patch-icon">NEW</div>
+        <div class="patch-body">
+          <h3>Transfers Are Now Open</h3>
+          <span class="patch-meta">BASILEI APPROVE TRANSFERS IN &amp; OUT</span>
+          <p>The transfer function is now available in the Poodle Portal. Members who need to transfer chapters may now use it directly. Check your portal regularly and do not delay those approvals.</p>
+        </div>
+      </div>
+
+      <div class="patch">
+        <div class="patch-icon">SOON</div>
+        <div class="patch-body">
+          <h3>Reactivation Coming Soon</h3>
+          <span class="patch-meta">EXPECTED WITHIN THE NEXT WEEK OR SO</span>
+          <p>Watch for additional communication as the reactivation function becomes available in the portal.</p>
+        </div>
+      </div>
+
+      <div class="patch">
+        <div class="patch-icon">$</div>
+        <div class="patch-body">
+          <h3>Having Trouble Paying Dues?</h3>
+          <span class="patch-meta">REGIONAL &amp; NATIONAL DUES INVOICING</span>
+          <p><b>One Sigma pilot chapters:</b> members pay local, regional, and national dues through the portal.</p>
+          <p><b>Not enrolled in One Sigma:</b> members pay local dues directly to the chapter; the local financial officer must then clear the member in the portal before a regional/national invoice can generate. Delaying this step delays the invoice.</p>
+          <div class="note">Still stuck? Join the weekly Poodle Portal Office Hours hosted by SWR Syntaktes LaTisha Brandon — every Thursday at 5:00 PM Pacific on Microsoft Teams (Meeting ID: 270 988 760 640 72 · Passcode: Ke3j8wk3), or submit a Helpdesk ticket.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="dates">
+    <p class="section-label">Know Now</p>
+    <h2 class="section-title">Fall TORCH 2026</h2>
+    <p class="lead-line">Wave 1 dates are published — keep these in view. A courtesy extension is in effect: chapters may continue submitting required compliance forms and calendars through <b style="color:#fff;">September 10, 2026</b> while visibility issues in the new portal are addressed. Continue following all official ICHQ and regional instructions.</p>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-date">SEPT 3, 2026</span>
+        <p class="tl-title">Calendar Submission Deadline</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-date">SEPT 27, 2026</span>
+        <p class="tl-title">Formal Rush</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-date">OCT 16, 2026</span>
+        <p class="tl-title">Intake Fees Due</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-date">NOV 7, 2026</span>
+        <p class="tl-title">Induction</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="alert-section">
+    <p class="section-label">Boule Update</p>
+    <h2 class="section-title">What Changed with SPEAR &amp; NEF</h2>
+    <div class="alert-box">
+      <h3>Effective Immediately</h3>
+      <p>Following actions taken at Boule, members of the Sorority will no longer pay assessments to the SPEAR and NEF foundations, and there is no longer a provision for regional representatives to serve with either foundation.</p>
+      <p>The International Parliamentarian sent correspondence to the membership on Friday, September 4th, with the full details. Please review that correspondence carefully and retain it for your chapter records.</p>
+      <p style="margin-bottom:0;"><b>This Brief highlights the immediate change only</b> — the official correspondence from the International Parliamentarian is the authoritative source.</p>
+    </div>
+  </section>
+
+  <section class="callout">
+    <p class="section-label">Lead With Us</p>
+    <h2 class="section-title">Upcoming Events</h2>
+
+    <div class="event-card">
+      <span class="patch-meta">OCT 17, 2026 · 9AM PACIFIC · VIRTUAL</span>
+      <h3>Mighty Leadership Summit</h3>
+      <p>MLS is an evolved Area Meeting Experience open to all financial sorors and Philos, not just currently seated leaders. Registration is available through the Western Region website. Area Coordinators are also building in-person Area Sisterhood Days, plus Area breakouts during MLS.</p>
+      <span class="badge-challenge">Basileus Challenge: don't assume MLS is only for officers.</span>
+    </div>
+
+    <div class="event-card">
+      <span class="patch-meta">75 YEARS · ONE MIGHTY CELEBRATION</span>
+      <h3>Pivot Like a PRHO</h3>
+      <p>The 2027 Pivot Like a PRHO Leadership Institute + Founders Day Celebration is an ICHQ-led initiative, hosted by the Western Region Board of Directors to kick off our Region's 75th year. This is a separate celebration during an international excursion — <b>it is not the 2027 Regional Conference</b>, which remains a virtual event as the body voted. The deposit is only $150, with the balance payable through December 2026, and the event is nearly sold out.</p>
+      <span class="badge-challenge">Basileus Challenge: don't let our birthday party happen without us.</span>
+    </div>
+
+  </section>
+
+  <section class="compliance-section">
+    <p class="section-label">Chapter Business</p>
+    <h2 class="section-title">Don't Let Admin Become a Barrier</h2>
+    <p style="font-size:13.8px;color:#4a5064;line-height:1.6;margin:0 0 14px;">Please make sure your chapter is current with required reports, financial obligations, and representation requirements.</p>
+    <ul class="compliance-list">
+      <li>Some chapters have not submitted End-of-Year reports, or submitted them late — applicable ICHQ fines have been or will be assessed.</li>
+      <li>Some chapters submitted their 990s late.</li>
+      <li>Chapters without representation at Boule for two consecutive years receive a fine from ICHQ.</li>
+      <li>Chapters without representation at Regional Conference for two consecutive years receive a fine from the Western Region.</li>
+    </ul>
+    <div class="note">Outstanding reports, fines, or compliance issues may affect a chapter's ability to conduct intake or seat delegates at the upcoming conference. If your chapter has an open item, now is the time to resolve it.</div>
+  </section>
+
+  <section class="region-section">
+    <p class="section-label">Know Your Region</p>
+    <h2 class="section-title">Meet Your Area Coordinators</h2>
+    <p style="font-size:13.8px;color:#4a5064;line-height:1.6;margin:0 0 16px;">The Western Region has welcomed several new Area Coordinators for the 2026–2028 biennium. Your Area Coordinator is your first line of regional support for chapter-level questions, guidance, and concerns.</p>
+    <div class="coord-grid">
+
+      <div class="coord-card">
+        <div class="photo-circle sm">PHOTO</div>
+        <div class="info">
+          <div>
+          <p class="who">Kimberly Adolinama</p>
+          <p class="where">Nu Delta Sigma · San Bernardino County, CA</p>
+        </div>
+        <span class="area-tag">SOCAL AC<br>wracsocal@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="coord-card">
+        <div class="photo-circle sm">PHOTO</div>
+        <div class="info">
+          <div>
+          <p class="who">Kimberly Adolinama</p>
+          <p class="where">Lambda Gamma Sigma · Pomona, CA</p>
+        </div>
+        <span class="area-tag">SOCAL ASST AC<br>wracassistant@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="coord-card">
+        <div class="photo-circle sm">PHOTO</div>
+        <div class="info">
+          <div>
+          <p class="who">Dr. Erica Morgera</p>
+          <p class="where">Eta Alpha Sigma · Sacramento, CA</p>
+        </div>
+        <span class="area-tag">NORTHERN CA<br>wracnorcal@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="coord-card">
+        <div class="photo-circle sm">PHOTO</div>
+        <div class="info">
+          <div>
+          <p class="who">Dr. Lynette Williamson</p>
+          <p class="where">Lambda Mu Sigma · Honolulu, HI</p>
+        </div>
+        <span class="area-tag">HAWAII/INTL AC<br>wracinternational@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="coord-card">
+        <div class="photo-circle sm">PHOTO</div>
+        <div class="info">
+          <div>
+          <p class="who">Arizona Proctor</p>
+          <p class="where">Delta Psi Sigma · Seattle, WA</p>
+        </div>
+        <span class="area-tag">PACIFIC NW AC<br>wracpnw@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="coord-card">
+        <div class="photo-circle sm">PHOTO</div>
+        <div class="info">
+          <div>
+          <p class="who">Jacqueline Williams</p>
+          <p class="where">Beta Mu Sigma · Phoenix, AZ</p>
+        </div>
+        <span class="area-tag">ARIZONA AC<br>wracarizona@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="coord-card">
+        <div class="photo-circle sm">PHOTO</div>
+        <div class="info">
+          <div>
+          <p class="who">Dione Gantt</p>
+          <p class="where">Eta Chi Sigma · Las Vegas, NV</p>
+        </div>
+        <span class="area-tag">NEVADA AC<br>wracnevada@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="coord-card">
+        <div class="photo-circle sm">PHOTO</div>
+        <div class="info">
+          <div>
+          <p class="who">Cierra "CC" Conerly</p>
+          <p class="where">Nu Delta Sigma · San Bernardino County, CA</p>
+        </div>
+        <span class="area-tag">CO &amp; NM AC<br>wraccolorado@gmail.com</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="note" style="margin-top:16px;">Want to know the full Western Region leadership team? Meet the Board of Directors, Coordinators, and Leadership Team at westernsgrho.org/leadership.</div>
+  </section>
+
+  <section class="passiton">
+    <p class="section-label">Pass It On</p>
+    <h2 class="section-title">3 Things to Take Back</h2>
+    <div class="patch-list">
+
+      <div class="patch">
+        <div class="patch-icon">01</div>
+        <div class="patch-body">
+          <h3>Claim Your Poodle Portal Account</h3>
+          <p>Encourage every member to check the email address the Sorority has on file and complete her FSID/account setup, if she hasn't already.</p>
+        </div>
+      </div>
+
+      <div class="patch">
+        <div class="patch-icon">02</div>
+        <div class="patch-body">
+          <h3>Get Your Members Engaged</h3>
+          <p>MLS is for all financial sorors and Philos, not just seated leaders. Pivot Like a PRHO and our 75th-year celebration are almost sold out — encourage participation now.</p>
+        </div>
+      </div>
+
+      <div class="patch">
+        <div class="patch-icon">03</div>
+        <div class="patch-body">
+          <h3>Check Your Chapter's Compliance Status</h3>
+          <p>Make sure EOY reports, 990 requirements, fines, and representation requirements are current. Don't let an administrative issue become a barrier to intake or delegate participation.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="help-section">
+    <p class="section-label">Need Help? Start Here.</p>
+    <h2 class="section-title">Where to Go</h2>
+    <div class="help-list">
+
+      <div class="help-item">
+        <p class="q">Chapter Health, Support &amp; Questions</p>
+        <p class="a">Start with your Area Coordinator, who can escalate as appropriate.</p>
+      </div>
+
+      <div class="help-item">
+        <p class="q">Poodle Portal / FSID / Payment Issues</p>
+        <p class="a">Thursday Office Hours (5:00 PM Pacific, Teams) or a Helpdesk ticket.</p>
+      </div>
+
+      <div class="help-item">
+        <p class="q">TORCH Questions</p>
+        <p class="a">Follow official ICHQ and regional communications, and work through the appropriate regional support channel. For escalations: torch@westernsgrho.org.</p>
+      </div>
+
+      <div class="help-item">
+        <p class="q">Regional Events &amp; Leadership Development</p>
+        <p class="a">Western Region website and your Area Coordinator.</p>
+      </div>
+
+      <div class="help-item">
+        <p class="q">Timely Basileus Communication</p>
+        <p class="a">Western Region Basileus GroupMe — join now if you haven't already.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p class="sig">ANDREA DAVIS</p>
+    <p>20th Western Regional Syntaktes</p>
+    <p>Sigma Gamma Rho Sorority, Inc. — Western Region</p>
+    <p style="margin-top:14px;">One Region. One Sisterhood. One Mighty Future.</p>
+    <p style="margin-top:10px;">This Brief does not replace official ICHQ correspondence, regional policies, or governing documents.</p>
+  </footer>
+
+</div>
+</body>
+</html>
